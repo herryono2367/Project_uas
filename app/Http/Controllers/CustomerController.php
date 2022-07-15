@@ -8,9 +8,10 @@ class CustomerController extends Controller
     public function index()
     {
       $customers= Customer::all();
-//      dd($customers);
-//        $customers= Customer::with('paket')->get();
-        return view('pelanggan.index', compact('customers'));
+      return view('pelanggan.index', compact('customers'));
+
+
+//      echo 'coba-coba';
     }
     public function create()
     {

@@ -12,4 +12,7 @@ class Tujuan extends Model
     public function customer(){
         return $this->hasOne('app\Customer');
     }
+    public function paket(){
+        return $this->hasOne('app\Paket');
+    }
 }

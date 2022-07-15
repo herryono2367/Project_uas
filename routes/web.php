@@ -22,3 +22,7 @@ Route::post('customer/store', 'CustomerController@store');
 Route::delete('/customers/{id}', 'CustomerController@destroy');
 Route::patch('customer/update/{customer}', 'CustomerController@update')->name('customer.update');
 Route::get('customer/edit/{id}', 'CustomerController@edit');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
