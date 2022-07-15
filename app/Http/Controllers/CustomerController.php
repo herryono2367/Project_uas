@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 use App\Customer;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Utils;
+
 class CustomerController extends Controller
 {
     public function index()
     {
-      $customers= Customer::all();
-      return view('pelanggan.index', compact('customers'));
 
+
+//        $customers= Customer::with('tujuan','paket')->get();
+//        return response()->json([$customers]);
+      $customers= Customer::all();
+        return view('pelanggan.index', compact('customers'));
 
 //      echo 'coba-coba';
     }

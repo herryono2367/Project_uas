@@ -27,8 +27,12 @@ Route::get('customer/edit/{id}', 'CustomerController@edit');
 
 //API PAKET CONTROLLER
 
+Route::get('password', function (){
+   return bcrypt('admin');
+});
+
 Route::get('/paket','PaketController@index');
 Route::get('/paket/{paket}','PaketController@show');
 Route::delete('/paket/{paket}','PaketController@destroy');
-Route::post('paket/', 'PaketController@store');
+Route::post('/paket/store', 'PaketController@store');
 Route::patch('paket/{paket}', 'PaketController@update');
