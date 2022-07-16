@@ -32,7 +32,17 @@ Route::get('password', function (){
 });
 
 Route::get('/paket','PaketController@index');
-Route::get('/paket/{paket}','PaketController@show');
-Route::delete('/paket/{paket}','PaketController@destroy');
-Route::post('/paket/store', 'PaketController@store');
-Route::patch('paket/{paket}', 'PaketController@update');
+Route::get('/paket/{paket}','PaketController@show')->middleware('auth:api');
+Route::delete('/paket/{paket}','PaketController@destroy')->middleware('auth:api');
+Route::post('/paket/store', 'PaketController@store')->middleware('auth:api');
+Route::patch('paket/{paket}', 'PaketController@update')->middleware('auth:api');
+
+//CONTOH JWT
+Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+    Route::post('wajib', 'AuthController@wajib');
+});
